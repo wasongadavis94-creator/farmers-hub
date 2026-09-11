@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmer Dashboard | Farmers Hub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>🌾 Farmers Hub</h1>
+    <p>Farmer Dashboard</p>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="marketplace.html">Marketplace</a>
+        <a href="register.html">Register</a>
+        <a href="dashboard.html">Dashboard</a>
+    </nav>
+</header>
+
+<main>
+
+    <!-- Farmer Profile -->
+    <section>
+        <h2>👨‍🌾 My Profile</h2>
+
+        <div id="profile">
+            <p><strong>Name:</strong> <span id="farmerName">Not registered</span></p>
+            <p><strong>Phone:</strong> <span id="farmerPhone">Not available</span></p>
+            <p><strong>Location:</strong> <span id="farmerLocation">Not available</span></p>
+            <p><strong>Farming Type:</strong> <span id="farmerType">Not available</span></p>
+            <p><strong>Email:</strong> <span id="farmerEmail">Not available</span></p>
+        </div>
+    </section>
+
+
+    <!-- Add Product -->
+    <section>
+        <h2>➕ Add Agricultural Product</h2>
+
+        <form id="dashboardProductForm">
+
+            <label for="productName">Product Name</label>
+            <input
+                type="text"
+                id="productName"
+                placeholder="e.g. Tomatoes"
+                required
+            >
+
+            <label for="productPrice">Price</label>
+            <input
+                type="text"
+                id="productPrice"
+                placeholder="e.g. KSh 100 per kg"
+                required
+            >
+
+            <label for="productLocation">Location</label>
+            <input
+                type="text"
+                id="productLocation"
+                placeholder="e.g. Meru County"
+                required
+            >
+
+            <button type="submit">Add Product</button>
+
+        </form>
+
+        <p id="productMessage"></p>
+    </section>
+
+
+    <!-- My Products -->
+    <section>
+        <h2>🛒 My Products</h2>
+
+        <div id="myProducts">
+            <p>No products listed yet.</p>
+        </div>
+    </section>
+
+</main>
+
+
+<footer>
+    <p>
+        &copy; 2026 Farmers Hub |
+        Empowering Farmers, Growing Communities
+    </p>
+</footer>
+
+
+<script>
+
+    // Load farmer information
+    const farmer = JSON.parse(localStorage.getItem("farmer"));
+
+    if (farmer) {
+
+        document.getElementById("farmerName").textContent =
+            farmer.name || "Not available";
+
+        document.getElementById("farmerPhone").textContent =
+            farmer.phone || "Not available";
+
+        document.getElementById("farmerLocation").textContent =
+            farmer.location || "Not available";
+
+        document.getElementById("farmerType").textContent =
+            farmer.farming || "Not available";
+
+        document.getElementById("farmerEmail").textContent =
+            farmer.email || "Not available";
+    }
+
+
+    // Load products
+    let products =
+        JSON.parse(localStorage.getItem("products")) || [];
+
+    displayProducts();
+
+
+    // Add product
+    document.getElementById("dashboardProductForm")
+        .addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        const product = {
+            name: document.getElementById("productName").value,
+            price: document.getElementById("productPrice").value,
+            location: document.getElementById("productLocation").value
+        };
+
+        products.push(product);
+
+        localStorage.setItem(
+            "products",
+            JSON.stringify(products)
+        );
+
+        document.getElementById("productMessage").textContent =
+            "✅ Product added successfully!";
+
+        this.reset();
+
+        displayProducts();
+    });
+
+
+    // Display products
+    function displayProducts() {
+
+        const container =
+            document.getElementById("myProducts");
+
+        if (products.length === 0) {
+
+            container.innerHTML =
+                "<p>No products listed yet.</p>";
+
+            return;
+        }
+
+        container.innerHTML = "";
+
+        products.forEach(function(product, index) {
+
+            const productDiv =
+                document.createElement("div");
+
+            productDiv.className = "product";
+
+            productDiv.innerHTML = `
+                <h3>🌱 ${product.name}</h3>
+                <p><strong>Price:</strong> ${product.price}</p>
+                <p><strong>Location:</strong> ${product.location}</p>
+
+                <button onclick="deleteProduct(${index})">
+                    Remove Product
+                </button>
+            `;
+
+            container.appendChild(productDiv);
+        });
+    }
+
+
+    // Delete product
+    function deleteProduct(index) {
+
+        products.splice(index, 1);
+
+        localStorage.setItem(
+            "products",
+            JSON.stringify(products)
+        );
+
+        displayProducts();
+    }
+
+</script>
+
+</body>
+</html>
