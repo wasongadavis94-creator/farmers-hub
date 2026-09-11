@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketplace | Farmers Hub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>🌾 Farmers Hub</h1>
+    <p>Buy and sell agricultural products</p>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="register.html">Register</a>
+        <a href="marketplace.html">Marketplace</a>
+    </nav>
+</header>
+
+<main>
+
+<section>
+    <h2>Farmers Marketplace</h2>
+
+    <p>
+        Find fresh agricultural products directly from farmers.
+    </p>
+
+    <div class="products">
+
+        <div class="product">
+            <h3>🌽 Maize</h3>
+            <p>Fresh maize from local farmers</p>
+            <strong>KSh 4,500 / Bag</strong>
+            <button>Contact Farmer</button>
+        </div>
+
+        <div class="product">
+            <h3>🥚 Eggs</h3>
+            <p>Fresh farm eggs</p>
+            <strong>KSh 450 / Tray</strong>
+            <button>Contact Farmer</button>
+        </div>
+
+        <div class="product">
+            <h3>🥬 Vegetables</h3>
+            <p>Fresh vegetables</p>
+            <strong>From KSh 50</strong>
+            <button>Contact Farmer</button>
+        </div>
+
+        <div class="product">
+            <h3>🥔 Potatoes</h3>
+            <p>Fresh farm potatoes</p>
+            <strong>KSh 3,000 / Bag</strong>
+            <button>Contact Farmer</button>
+        </div>
+
+    </div>
+</section>
+
+<section>
+    <h2>List Your Product</h2>
+
+    <form id="productForm">
+
+        <label>Product Name</label>
+        <input type="text" id="productName"
+               placeholder="e.g. Tomatoes" required>
+
+        <label>Price</label>
+        <input type="text" id="productPrice"
+               placeholder="e.g. KSh 100 per kg" required>
+
+        <label>Location</label>
+        <input type="text" id="productLocation"
+               placeholder="e.g. Meru County" required>
+
+        <button type="submit">List Product</button>
+
+    </form>
+
+    <p id="productMessage"></p>
+</section>
+
+</main>
+
+<footer>
+    <p>&copy; 2026 Farmers Hub | Empowering Farmers, Growing Communities</p>
+</footer>
+
+<script>
+document.getElementById("productForm").addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const name = document.getElementById("productName").value;
+    const price = document.getElementById("productPrice").value;
+    const location = document.getElementById("productLocation").value;
+
+    document.getElementById("productMessage").textContent =
+        name + " has been listed at " + price +
+        " in " + location + ".";
+
+    document.getElementById("productForm").reset();
+});
+</script>
+
+</body>
+</html>
