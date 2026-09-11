@@ -14,9 +14,9 @@
     <p>Join our farming community</p>
 
     <nav>
-        <a href="index.html">Home</a>
-        <a href="register.html">Register</a>
-        <a href="#contact">Contact</a>
+       <a href="index.html">Home</a>
+<a href="marketplace.html">Marketplace</a>
+<a href="dashboard.html">Dashboard</a>
     </nav>
 </header>
 
@@ -65,22 +65,30 @@
 
     </section>
 
-</main>
-
-<footer>
-    <p>&copy; 2026 Farmers Hub | Empowering Farmers, Growing Communities</p>
-</footer>
-
 <script>
 document.getElementById("registrationForm").addEventListener("submit", function(event) {
 
     event.preventDefault();
 
-    document.getElementById("message").textContent =
-        "Registration successful! Welcome to Farmers Hub.";
+    const farmer = {
+        name: document.getElementById("name").value,
+        phone: document.getElementById("phone").value,
+        location: document.getElementById("location").value,
+        farming: document.getElementById("farming").value,
+        email: document.getElementById("email").value
+    };
 
+    // Save farmer information
+    localStorage.setItem("farmer", JSON.stringify(farmer));
+
+    document.getElementById("message").textContent =
+        "✅ Registration successful! Your information has been saved.";
+
+    // Clear the form
     document.getElementById("registrationForm").reset();
+
 });
+</script>
 </script>
 
 </body>
