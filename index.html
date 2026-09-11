@@ -1,63 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Farmers Hub</title>
+    <title>Farmers Hub | Empowering Farmers</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <header>
-        <h1>🌾 Farmers Hub</h1>
-        <p>Connecting Farmers, Markets and Agricultural Knowledge</p>
+<header>
+    <h1>🌾 Farmers Hub</h1>
+    <p>Connecting Farmers to Knowledge, Markets and Opportunities</p>
 
-        <nav>
-            <a href="#">Home</a> |
-            <a href="#">Farmers</a> |
-            <a href="#">Marketplace</a> |
-            <a href="#">Agricultural Information</a> |
-            <a href="#">Contact</a>
-        </nav>
-    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="#services">Services</a>
+        <a href="#marketplace">Marketplace</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
 
-    <main>
+<main>
 
-        <section>
-            <h2>Welcome to Farmers Hub</h2>
-            <p>
-                Farmers Hub is a digital platform designed to connect farmers
-                with agricultural information, markets, buyers and farming
-                resources.
-            </p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2>Empowering Farmers, Growing Communities</h2>
 
-            <button>Join Farmers Hub</button>
-            <button>Explore Marketplace</button>
-        </section>
+        <p>
+            Farmers Hub provides farmers with agricultural information,
+            market opportunities, farming resources and access to support
+            services — all in one place.
+        </p>
 
-        <section>
-            <h2>What We Offer</h2>
+        <button onclick="location.href='#marketplace'">
+            Explore Marketplace
+        </button>
 
-            <h3> Farming Information</h3>
-            <p>Access useful information on crops, livestock, pests and diseases.</p>
+        <button onclick="location.href='#services'">
+            Explore Services
+        </button>
+    </section>
 
-            <h3> Farmers Marketplace</h3>
-            <p>Connect farmers with buyers and markets for agricultural products.</p>
 
-            <h3> Farmer Support</h3>
-            <p>Access agricultural advice and useful farming resources.</p>
+    <!-- Services -->
+    <section id="services">
 
-            <h3> Better Farm Management</h3>
-            <p>Get information that can help improve productivity and profitability.</p>
-        </section>
+        <h2>Our Services</h2>
 
-    </main>
+        <div class="services">
 
-    <footer>
-        <p>&copy; 2026 Farmers Hub. All rights reserved.</p>
-    </footer>
+            <div class="card">
+                <h3>🌱 Agricultural Information</h3>
+                <p>
+                    Get useful information about crop production,
+                    livestock management, pests and diseases.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>🛒 Farmers Marketplace</h3>
+                <p>
+                    Connect farmers with buyers and find markets
+                    for agricultural products.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>👨‍🌾 Farmer Support</h3>
+                <p>
+                    Access farming advice, resources and agricultural
+                    support services.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>📈 Farm Management</h3>
+                <p>
+                    Discover ways to improve farm productivity,
+                    profitability and sustainability.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Marketplace -->
+    <section id="marketplace">
+
+        <h2>Farmers Marketplace</h2>
+
+        <p>Featured agricultural products:</p>
+
+        <div class="products">
+
+            <div class="product">
+                <h3>🌽 Maize</h3>
+                <p>Fresh farm produce</p>
+                <strong>KSh 4,500 / Bag</strong>
+            </div>
+
+            <div class="product">
+                <h3>🥬 Vegetables</h3>
+                <p>Fresh vegetables</p>
+                <strong>From KSh 50</strong>
+            </div>
+
+            <div class="product">
+                <h3>🥚 Eggs</h3>
+                <p>Fresh farm eggs</p>
+                <strong>KSh 450 / Tray</strong>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- About -->
+    <section id="about">
+
+        <h2>About Farmers Hub</h2>
+
+        <p>
+            Farmers Hub is a digital agricultural platform designed
+            to connect smallholder farmers with essential agricultural
+            information, markets, inputs, advisory services and
+            opportunities.
+        </p>
+
+    </section>
+
+
+    <!-- Contact -->
+    <section id="contact">
+
+        <h2>Contact Farmers Hub</h2>
+
+        <p>
+            Have a question or need agricultural support?
+        </p>
+
+        <button onclick="alert('Thank you for contacting Farmers Hub!')">
+            Contact Us
+        </button>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <p>
+        &copy; 2026 Farmers Hub | Empowering Farmers, Growing Communities
+    </p>
+
+</footer>
 
 </body>
 </html>
