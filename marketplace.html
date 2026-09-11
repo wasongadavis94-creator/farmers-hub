@@ -65,20 +65,85 @@
 </footer>
 
 <script>
-document.getElementById("productForm").addEventListener("submit", function(event) {
+<script>
 
-    event.preventDefault();
+    // Get saved products
+    const products =
+        JSON.parse(localStorage.getItem("products")) || [];
 
-    const name = document.getElementById("productName").value;
-    const price = document.getElementById("productPrice").value;
-    const location = document.getElementById("productLocation").value;
+    const container =
+        document.getElementById("marketplaceProducts");
 
-    document.getElementById("productMessage").textContent =
-        name + " has been listed at " + price +
-        " in " + location + ".";
 
-    document.getElementById("productForm").reset();
-});
+    // Show products
+    function displayProducts() {
+
+        if (products.length === 0) {
+
+            container.innerHTML = `
+                <div class="product">
+                    <h3>🌱 No Products Yet</h3>
+                    <p>
+                        Farmers have not listed any products yet.
+                    </p>
+
+                    <a href="dashboard.html">
+                        <button>List Your Product</button>
+                    </a>
+                </div>
+            `;
+
+            return;
+        }
+
+
+        container.innerHTML = "";
+
+
+        products.forEach(function(product) {
+
+            const productDiv =
+                document.createElement("div");
+
+            productDiv.className = "product";
+
+            productDiv.innerHTML = `
+                <h3>🌱 ${product.name}</h3>
+
+                <p>
+                    <strong>Price:</strong>
+                    ${product.price}
+                </p>
+
+                <p>
+                    <strong>Location:</strong>
+                    ${product.location}
+                </p>
+
+                <button onclick="contactFarmer('${product.name}')">
+                    Contact Farmer
+                </button>
+            `;
+
+            container.appendChild(productDiv);
+        });
+    }
+
+
+    // Contact farmer
+    function contactFarmer(productName) {
+
+        alert(
+            "You are interested in: " +
+            productName +
+            ". Farmer contact feature coming soon!"
+        );
+    }
+
+
+    displayProducts();
+
+</script>
 </script>
 
 </body>
