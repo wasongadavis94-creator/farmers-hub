@@ -1,0 +1,124 @@
+/* Farmers Hub - Main Styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background: #f4f8f4;
+    color: #333;
+}
+
+/* Header */
+header {
+    background: #1b5e20;
+    color: white;
+    padding: 25px 8%;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 36px;
+    margin-bottom: 8px;
+}
+
+header p {
+    font-size: 17px;
+}
+
+/* Navigation */
+nav {
+    margin-top: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 12px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Main sections */
+main {
+    width: 90%;
+    max-width: 1100px;
+    margin: 40px auto;
+}
+
+section {
+    background: white;
+    padding: 35px;
+    margin-bottom: 30px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+section h2 {
+    color: #1b5e20;
+    margin-bottom: 15px;
+    font-size: 28px;
+}
+
+section h3 {
+    color: #2e7d32;
+    margin-top: 20px;
+    margin-bottom: 8px;
+}
+
+/* Buttons */
+button {
+    background: #2e7d32;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    margin: 20px 8px 0 0;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+button:hover {
+    background: #1b5e20;
+}
+
+/* Footer */
+footer {
+    background: #1b5e20;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+/* Mobile phones */
+@media (max-width: 600px) {
+
+    header h1 {
+        font-size: 28px;
+    }
+
+    nav a {
+        display: block;
+        margin: 8px 0;
+    }
+
+    main {
+        width: 94%;
+    }
+
+    section {
+        padding: 25px;
+    }
+
+    button {
+        width: 100%;
+    }
+}
