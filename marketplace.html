@@ -29,6 +29,14 @@
     <p>
         Find agricultural products directly from farmers.
     </p>
+        <div class="search-box">
+    <input
+        type="text"
+        id="searchInput"
+        placeholder="🔍 Search for a product..."
+        onkeyup="searchProducts()"
+    >
+</div>
 
     <div id="marketplaceProducts" class="products">
         <p>Loading products...</p>
@@ -76,6 +84,65 @@
 
 
     // Show products
+    function searchProducts() {
+
+    const search =
+        document.getElementById("searchInput")
+        .value
+        .toLowerCase();
+
+    const filteredProducts =
+        products.filter(function(product) {
+
+            return (
+                product.name.toLowerCase().includes(search) ||
+                product.location.toLowerCase().includes(search)
+            );
+
+        });
+
+    container.innerHTML = "";
+
+    if (filteredProducts.length === 0) {
+
+        container.innerHTML = `
+            <div class="product">
+                <h3>❌ No products found</h3>
+                <p>Try searching for another product or location.</p>
+            </div>
+        `;
+
+        return;
+    }
+
+    filteredProducts.forEach(function(product) {
+
+        const productDiv =
+            document.createElement("div");
+
+        productDiv.className = "product";
+
+        productDiv.innerHTML = `
+            <h3>🌱 ${product.name}</h3>
+
+            <p>
+                <strong>Price:</strong>
+                ${product.price}
+            </p>
+
+            <p>
+                <strong>Location:</strong>
+                ${product.location}
+            </p>
+
+            <button onclick="contactFarmer('${product.name}')">
+                Contact Farmer
+            </button>
+        `;
+
+        container.appendChild(productDiv);
+    });
+}
     function displayProducts() {
 
         if (products.length === 0) {
